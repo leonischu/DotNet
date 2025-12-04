@@ -299,7 +299,85 @@ namespace WorkingWithStrings
         }
     }
 }
+
+
+using System;
+namespace DatesAndTimes
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            DateTime myValue = DateTime.Now;
+            //Console.WriteLine(myValue.ToString()); // Displays date and time
+            //Console.WriteLine(myValue.ToShortDateString()); // displays only time
+            // Console.WriteLine(myValue.ToShortTimeString());
+            //Console.WriteLine(myValue.ToLongDateString());
+            //Console.WriteLine(myValue.ToLongTimeString());
+            //Console.WriteLine(myValue.AddDays(3).ToLongDateString());
+            //Console.WriteLine(myValue.AddDays(-3).ToLongDateString());
+
+            //DateTime myBirthday = new DateTime(2002, 3, 30);
+            //Console.WriteLine(myBirthday.ToShortDateString
+            DateTime myBirthday =  DateTime.Parse("9/30/2002");
+            TimeSpan myAge = DateTime.Now.Subtract(myBirthday);
+            Console.WriteLine(myAge.TotalDays);    
+            Console.ReadLine();
+
+        }
+
+    }
+}
+
+namespace simpleClasses
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Car myCar = new Car();
+            myCar.Make = "OldsMobile";
+            myCar.Model = "Cutlas Supreme";
+            myCar.Year = 1986;
+            myCar.Color = "Silver";
+
+            Console.WriteLine($"{myCar.Make},{myCar.Model},{myCar.Year},{myCar.Color}");
+
+
+
+            //decimal value = DetermineMarketValue(myCar);
+            //Console.WriteLine("{0:C}", value);
+            Console.WriteLine("{0:C}", myCar.DetermineMarketValue());
+            Console.ReadLine();
+        }
+        private static decimal DetermineMarketValue(Car car)
+        {
+            decimal carValue = 100.0m;
+            return carValue;
+        }
+
+
+    }
+        class Car
+        {
+            public string Make { get; set; }
+            public string Model { get; set; }
+            public int Year { get; set; }
+            public string Color { get; set; }
+
+            public decimal DetermineMarketValue()
+        {
+            decimal carValue;
+            if (Year > 1990)
+                carValue = 10000;
+            else
+                carValue = 2000;
+            return carValue;
+
+        }
+       
+        }
+
+
+    }
 */
-
-
-
