@@ -74,7 +74,7 @@ namespace ObjectLifeTime
 
    }
 }
- */
+ 
 
 using System;
 
@@ -135,11 +135,58 @@ namespace UnderstandingScope
         }
     
     }
+}
+
+using System;
+using System.IO;
+using System.Net;
+namespace AssembliesAndNamespace
+{
+class Program
+    {
+        static void Main(string[] args)
+        {
+            //string text = "We want to write this to our file.";
+            //File.WriteAllText(@"C:\PERCOIDIT\Desktop\WriteText.txt", text);
+
+            WebClient client = new WebClient();
+            string reply = client.DownloadString("http://msdn.microsoft.com");
+            Console.WriteLine(reply);
+
+            //Console.WriteLine("Hello World!");
+            Console.ReadLine();
+
+        }
+
+    }
 
 
+}
+*/
+using System;
+using System.Net;
 
+namespace MyCodeLibrary
+{
+    class Scrape
+    {
+        public string ScrapeWebPage(string url)
+        {
+            return GetWebpage(url);
+            
+        }
+        public string ScrapeWebpage(string url, string filepath)
+        {
+           string reply = GetWebpage(url);
+            File.WriteAllText(filepath, reply);
+            return reply;
+        }
+        
 
-
-
-
+            private string GetWebpage(string url)
+        {
+            WebClient client = new WebClient();
+            return client.DownloadString(url);
+        }
+    }
 }
